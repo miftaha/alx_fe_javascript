@@ -24,6 +24,7 @@ function showRandomQuote() {
   const randomQuote = quotes[randomIndex]
   quoteDisplay.innerHTML = `<p>${randomQuote.text}</p><p><em>Category: ${randomQuote.category}</em></p>`
 }
+//createElement appendChild
 newQuote.addEventListener('click', showRandomQuote)
 
 function addQuote() {
@@ -114,6 +115,7 @@ async function fetchQuotesFromServer() {
       category: 'Server',
     }))
 
+    // ["syncQuotes"] ["Quotes synced with server!"]
     quotes = [
       ...updatedQuotes,
       ...quotes.filter(
@@ -126,6 +128,7 @@ async function fetchQuotesFromServer() {
   } catch (error) {
     console.error('Error fetching data from server:', error)
   }
+  //["method", "POST", "headers", "Content-Type"]
 }
 
 setInterval(fetchQuotesFromServer, 300000)
